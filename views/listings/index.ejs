@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<!-- <%=success%> -->
+    <body>
+        <h3>All Listings.</h3>
+        <!-- <form method="GET" action="/listings/new">
+        <button>Add New Listing</button>
+    </form> -->
+
+        <!-- <ul>
+        <% for(let listing of alllistings){%>
+            <li><a href="/listings/<%= listing._id%>"><%=listing.title%></a></li>
+        <%}%>
+    </ul> -->
+
+        <!-- <div class="row ">
+            <% for(let listing of alllistings){%>
+                <div class="card" style="width: 18rem;">
+                    <img src="<%= listing.image %>" class="card-img-top" style="height: 20rem" alt="listing_images">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <%=listing.title%>
+                                <br>
+                                &#8377 <%=listing.price.toLocaleString("en-IN")%> / Night
+                        </p>
+                    </div>
+                </div>
+                <%}%>
+        </div> -->
+
+
+        <!-- This is Copied from the we priviously done -->
+        
+
+        <div class="row row-cols-lg-3 row-cols-md-2 row cols-sm-1">
+            <% for(let listing of alllistings){ %>
+                <a href="/listings/<%= listing._id %>" class="listing-item">
+                    <div class="card listing-card" style="width: 20rem;">
+                        <img src="<%= listing.image %>" class="card-img-top" style="height: 20rem" alt="..."> 
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%=listing.title%>
+                                </b>
+                                <br>
+                                &#8377; <%=listing.price.toLocaleString("en-IN")%> / night
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+    </div>
+
+    </body>
