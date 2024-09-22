@@ -8,11 +8,16 @@ body{
 }
 .nav-link{
     color: #222222 !important;
+    font-size: 20px !important;
 }
 .navbar{
+    display: flex;
     background-color: #ffff;
-    height: 5rem;
+    text-align: center;
+    font-weight: 400;
+    justify-content: center;
 }
+
 .navigation-btn{
     display: flex;
     width: 50%;
