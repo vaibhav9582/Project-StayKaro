@@ -7,10 +7,10 @@ const Listing = require("../models/listing");
 const { isLoggedin } = require("../middleware");
 const listingController = require("../controllers/listings");
 // const {index} = require("../controllers/listings") Above also corect
-// const multer  = require('multer');
-// const {storage} = require("../cloudConfig.js");
+const multer  = require('multer');
+const {storage} = require("../cloudConfig.js");
 // const upload = multer({ dest: 'uploads/' });
-// const upload = multer({ storage});
+const upload = multer({ storage});
 
 
 
@@ -41,17 +41,18 @@ router.get(
 router.get("/:id", wrapAsync(listingController.showListing));
 
 // Create Route
-router.post(
-  "/" ,
-  isLoggedin,
-  validatelisting,
-  wrapAsync(listingController.createListing)
-);  
+// router.post(
+//   "/" ,
+//   isLoggedin,
+//   validatelisting,
+//   wrapAsync(listingController.createListing)
+// );  
 
 // this is for practice only above code is important.
-// router.post("/" , upload.single("listing[image]") , (req , res )=>{
-//     res.send(req.file);
-// })
+router.post("/" , upload.single("listing[image]") , (req , res)=>{
+    console.log(req.file);
+    res.send(req.file);
+})
 
 //Edit Route
 router.get(
