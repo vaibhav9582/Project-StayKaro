@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Review = require('./review');
-const { ref } = require('joi');
+const { ref, string } = require('joi');
 const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
@@ -9,10 +9,14 @@ const listingSchema = new Schema({
         required:true
     },
     description:String,
+    // image: {
+    //     type:String,
+    //     default: "https://media.istockphoto.com/id/157680513/photo/mansion-at-dawn.jpg?s=2048x2048&w=is&k=20&c=UMbdBGeofrxQd218fAkf3ewQRWiDmoZK7ZCfzt_L7_s=",
+    //     set:(v)=> v === ""?"https://media.istockphoto.com/id/157680513/photo/mansion-at-dawn.jpg?s=2048x2048&w=is&k=20&c=UMbdBGeofrxQd218fAkf3ewQRWiDmoZK7ZCfzt_L7_s=":v
+    // },
     image: {
-        type:String,
-        default: "https://media.istockphoto.com/id/157680513/photo/mansion-at-dawn.jpg?s=2048x2048&w=is&k=20&c=UMbdBGeofrxQd218fAkf3ewQRWiDmoZK7ZCfzt_L7_s=",
-        set:(v)=> v === ""?"https://media.istockphoto.com/id/157680513/photo/mansion-at-dawn.jpg?s=2048x2048&w=is&k=20&c=UMbdBGeofrxQd218fAkf3ewQRWiDmoZK7ZCfzt_L7_s=":v
+        url : String,
+        filename : String,
     },
     price:{
         type:Number,

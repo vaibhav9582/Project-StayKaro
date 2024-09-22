@@ -67,6 +67,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedin,
+  upload.single("listing[image]") ,
   validatelisting,
   wrapAsync(listingController.updateListing)
 );
